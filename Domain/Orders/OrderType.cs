@@ -1,12 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain.Orders
 {
-    class OrderType
+    public class OrderType
     {
+        public int OrderTypeId { get; set; }
+
+        [MaxLength(32)]
+        public String OrderTypeValue { get; set; } //TODO max 32 digits
+
+        [MaxLength(256)]
+        public String OrderTypeDescription { get; set; }
+        public bool OrderTypeActive { get; set; }
+
+        public virtual List<Order> Orders { get; set; }
     }
 }

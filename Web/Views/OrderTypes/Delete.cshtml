@@ -1,0 +1,48 @@
+﻿@model Domain.Orders.OrderType
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>OrderType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderTypeValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderTypeValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderTypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderTypeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderTypeActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderTypeActive)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

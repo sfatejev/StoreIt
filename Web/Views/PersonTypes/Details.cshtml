@@ -1,0 +1,42 @@
+﻿@model Domain.People.PersonType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PersonType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonTypeValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonTypeValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonTypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonTypeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonTypeActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonTypeActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PersonTypeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

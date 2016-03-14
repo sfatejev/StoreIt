@@ -1,0 +1,50 @@
+﻿@model Domain.Store.ProductEdit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProductEdit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductEditType.ProductEditTypeValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductEditType.ProductEditTypeValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductEditTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductEditTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductEditorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductEditorId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductEditId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

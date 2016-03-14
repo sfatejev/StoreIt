@@ -30,6 +30,7 @@ namespace StoreIt.Migrations
             //    );
             //
 
+            /*
             context.ContactTypes.AddOrUpdate(p => p.ContactTypeId, 
                 new ContactType {ContactTypeId = 0, ContactTypeValue = "Mobiiltelefon", ContactTypeActive = true, Contacts = null},
                 new ContactType {ContactTypeId = 1, ContactTypeValue = "E-mail", ContactTypeActive = true, Contacts = null},
@@ -39,7 +40,7 @@ namespace StoreIt.Migrations
                 new PersonType {PersonTypeId = 0, PersonTypeValue = "Töötaja", PersonTypeActive = true, PersonTypeDescription = "Ettevõtte töötajad", Persons = null},
                 new PersonType {PersonTypeId = 1,PersonTypeValue = "Juhtkond",PersonTypeActive = true,PersonTypeDescription = "Ettevõtte juhtiv personal",Persons = null},
                 new PersonType {PersonTypeId = 2, PersonTypeValue = "Klient", PersonTypeActive = true, PersonTypeDescription = "Ettevõtte kliendid", Persons = null});
-
+            */
             //TODO JÄTKATA!!!
         }
     }

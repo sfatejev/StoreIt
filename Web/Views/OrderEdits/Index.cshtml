@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Domain.Orders.OrderEdit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Order.OrderId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderEditType.OrderEditTypeValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderEditTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.OrderId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderEditType.OrderEditTypeValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderEditTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrderEditId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrderEditId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrderEditId })
+        </td>
+    </tr>
+}
+
+</table>

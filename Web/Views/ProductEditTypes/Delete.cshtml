@@ -1,0 +1,40 @@
+﻿@model Domain.Store.ProductEditType
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ProductEditType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductEditTypeValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductEditTypeValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductEditTypeActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductEditTypeActive)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

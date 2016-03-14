@@ -1,0 +1,42 @@
+﻿@model Domain.Store.ProductCategory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProductCategory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductCategoryValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductCategoryValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductCategoryDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductCategoryDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductCategoryActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductCategoryActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductCategoryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

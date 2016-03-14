@@ -1,0 +1,34 @@
+﻿@model Domain.Store.ProductEditType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProductEditType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductEditTypeValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductEditTypeValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductEditTypeActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductEditTypeActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductEditTypeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

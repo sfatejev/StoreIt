@@ -1,0 +1,42 @@
+﻿@model Domain.Users.UserEditType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserEditType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserEditTypeValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserEditTypeValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserEditTypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserEditTypeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserEditTypeActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserEditTypeActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserEditTypeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

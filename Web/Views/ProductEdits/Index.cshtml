@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Domain.Store.ProductEdit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductEditType.ProductEditTypeValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductEditTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductEditorId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductEditType.ProductEditTypeValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductEditTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductEditorId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductEditId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductEditId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductEditId })
+        </td>
+    </tr>
+}
+
+</table>

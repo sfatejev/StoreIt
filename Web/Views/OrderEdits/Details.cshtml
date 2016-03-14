@@ -1,0 +1,50 @@
+﻿@model Domain.Orders.OrderEdit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrderEdit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Order.OrderId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.OrderId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderEditType.OrderEditTypeValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderEditType.OrderEditTypeValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderEditTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderEditTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderEditId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,50 @@
+﻿@model Domain.Users.UserEdit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserEdit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserEditType.UserEditTypeValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserEditType.UserEditTypeValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserEditTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserEditTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserEditorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserEditorId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserEditId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

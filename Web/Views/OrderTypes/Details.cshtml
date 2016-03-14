@@ -1,0 +1,42 @@
+﻿@model Domain.Orders.OrderType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrderType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderTypeValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderTypeValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderTypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderTypeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderTypeActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderTypeActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderTypeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

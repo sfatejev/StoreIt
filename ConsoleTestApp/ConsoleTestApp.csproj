@@ -60,13 +60,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{00f25cd1-98a3-4c36-a6ed-41647ffd855c}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{5a69e765-34b4-46da-8bd8-ff2c698c09fe}</Project>
       <Name>Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StoreIt\DAL.csproj">
-      <Project>{00f25cd1-98a3-4c36-a6ed-41647ffd855c}</Project>
-      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

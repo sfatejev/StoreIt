@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aggregate\PersonWithContactCount.cs" />
     <Compile Include="Orders\Order.cs" />
     <Compile Include="Orders\OrderEdit.cs" />
     <Compile Include="Orders\OrderEditType.cs" />

@@ -13,6 +13,6 @@ namespace ConsoleTestApp
         {
             var ctx = new StoreItDbContext();
             var p = ctx.People.ToList();
-        }
+        }//kontroll
     }
 }

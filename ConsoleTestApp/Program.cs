@@ -14,7 +14,7 @@ namespace ConsoleTestApp
             var ctx = new StoreItDbContext();
             var p = ctx.People.ToList();
 
-            //TERE MINU NIMI ON SERGEI
+            //TERE MINU NIMI ON SERGEIsdffsdfds
         }
     }
 }

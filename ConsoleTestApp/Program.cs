@@ -15,4 +15,4 @@ namespace ConsoleTestApp
             var p = ctx.People.ToList();
         }//test
     }
-}
+}//Veel üks test

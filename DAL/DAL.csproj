@@ -49,13 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDbContext.cs" />
     <Compile Include="Interfaces\Orders\IOrderEditRepository.cs" />
     <Compile Include="Interfaces\Orders\IOrderEditTypeRepository.cs" />
     <Compile Include="Interfaces\Orders\IOrderedProductRepository.cs" />
     <Compile Include="Interfaces\Orders\IOrderRepository.cs" />
     <Compile Include="Interfaces\Orders\IOrderTypeRepository.cs" />
     <Compile Include="Interfaces\People\IContactRepository.cs" />
-    <Compile Include="Interfaces\IDbContext.cs" />
     <Compile Include="Interfaces\IEFRepository.cs" />
     <Compile Include="Interfaces\People\IContactTypeRepository.cs" />
     <Compile Include="Interfaces\People\IPersonRepository.cs" />

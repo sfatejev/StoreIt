@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Domain.People;
 using DAL;
+using Domain.People;
 
-namespace Web.Controllers.People
+namespace Web.Areas.People.Controllers
 {
     public class ContactTypesController : Controller
     {

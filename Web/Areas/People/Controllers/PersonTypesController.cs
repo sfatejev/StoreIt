@@ -1,122 +1,113 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Domain.People;
 using DAL;
+using Domain.People;
 
-namespace Web.Controllers.People
+namespace Web.Areas.People.Controllers
 {
-    public class PeopleController : Controller
+    public class PersonTypesController : Controller
     {
         private StoreItDbContext db = new StoreItDbContext();
 
-        // GET: People
+        // GET: PersonTypes
         public ActionResult Index()
         {
-            var people = db.People.Include(p => p.PersonType);
-            return View(people.ToList());
+            return View(db.PersonTypes.ToList());
         }
 
-        // GET: People/Details/5
+        // GET: PersonTypes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Person person = db.People.Find(id);
-            if (person == null)
+            PersonType personType = db.PersonTypes.Find(id);
+            if (personType == null)
             {
                 return HttpNotFound();
             }
-            return View(person);
+            return View(personType);
         }
 
-        // GET: People/Create
+        // GET: PersonTypes/Create
         public ActionResult Create()
         {
-            ViewBag.PersonTypeId = new SelectList(db.PersonTypes, "PersonTypeId", "PersonTypeValue");
             return View();
         }
 
-        // POST: People/Create
+        // POST: PersonTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonId,PersonActive,Firstname,Lastname,PersonTypeId")] Person person)
+        public ActionResult Create([Bind(Include = "PersonTypeId,PersonTypeValue,PersonTypeDescription,PersonTypeActive")] PersonType personType)
         {
             if (ModelState.IsValid)
             {
-                db.People.Add(person);
+                db.PersonTypes.Add(personType);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonTypeId = new SelectList(db.PersonTypes, "PersonTypeId", "PersonTypeValue", person.PersonTypeId);
-            return View(person);
+            return View(personType);
         }
 
-        // GET: People/Edit/5
+        // GET: PersonTypes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Person person = db.People.Find(id);
-            if (person == null)
+            PersonType personType = db.PersonTypes.Find(id);
+            if (personType == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonTypeId = new SelectList(db.PersonTypes, "PersonTypeId", "PersonTypeValue", person.PersonTypeId);
-            return View(person);
+            return View(personType);
         }
 
-        // POST: People/Edit/5
+        // POST: PersonTypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonId,PersonActive,Firstname,Lastname,PersonTypeId")] Person person)
+        public ActionResult Edit([Bind(Include = "PersonTypeId,PersonTypeValue,PersonTypeDescription,PersonTypeActive")] PersonType personType)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(person).State = EntityState.Modified;
+                db.Entry(personType).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonTypeId = new SelectList(db.PersonTypes, "PersonTypeId", "PersonTypeValue", person.PersonTypeId);
-            return View(person);
+            return View(personType);
         }
 
-        // GET: People/Delete/5
+        // GET: PersonTypes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Person person = db.People.Find(id);
-            if (person == null)
+            PersonType personType = db.PersonTypes.Find(id);
+            if (personType == null)
             {
                 return HttpNotFound();
             }
-            return View(person);
+            return View(personType);
         }
 
-        // POST: People/Delete/5
+        // POST: PersonTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Person person = db.People.Find(id);
-            db.People.Remove(person);
+            PersonType personType = db.PersonTypes.Find(id);
+            db.PersonTypes.Remove(personType);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

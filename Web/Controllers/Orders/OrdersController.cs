@@ -1,117 +1,118 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Domain.Orders;
 using DAL;
+using Domain.Orders;
 
-namespace Web.Controllers
+namespace Web.Controllers.Orders
 {
-    public class OrderEditTypesController : Controller
+    public class OrdersController : Controller
     {
         private StoreItDbContext db = new StoreItDbContext();
 
-        // GET: OrderEditTypes
+        // GET: Orders
         public ActionResult Index()
         {
-            return View(db.OrderEditTypes.ToList());
+            var orders = db.Orders.Include(o => o.OrderType);
+            return View(orders.ToList());
         }
 
-        // GET: OrderEditTypes/Details/5
+        // GET: Orders/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderEditType orderEditType = db.OrderEditTypes.Find(id);
-            if (orderEditType == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(orderEditType);
+            return View(order);
         }
 
-        // GET: OrderEditTypes/Create
+        // GET: Orders/Create
         public ActionResult Create()
         {
+            ViewBag.OrderTypeId = new SelectList(db.OrderTypes, "OrderTypeId", "OrderTypeValue");
             return View();
         }
 
-        // POST: OrderEditTypes/Create
+        // POST: Orders/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderEditTypeId,OrderEditTypeValue,OrderEditTypeDescription,OrderEditTypeActive")] OrderEditType orderEditType)
+        public ActionResult Create([Bind(Include = "OrderId,OrderPaymentDate,OrderTypeId,ClientId,EmployeeId")] Order order)
         {
             if (ModelState.IsValid)
             {
-                db.OrderEditTypes.Add(orderEditType);
+                db.Orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(orderEditType);
+            ViewBag.OrderTypeId = new SelectList(db.OrderTypes, "OrderTypeId", "OrderTypeValue", order.OrderTypeId);
+            return View(order);
         }
 
-        // GET: OrderEditTypes/Edit/5
+        // GET: Orders/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderEditType orderEditType = db.OrderEditTypes.Find(id);
-            if (orderEditType == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(orderEditType);
+            ViewBag.OrderTypeId = new SelectList(db.OrderTypes, "OrderTypeId", "OrderTypeValue", order.OrderTypeId);
+            return View(order);
         }
 
-        // POST: OrderEditTypes/Edit/5
+        // POST: Orders/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderEditTypeId,OrderEditTypeValue,OrderEditTypeDescription,OrderEditTypeActive")] OrderEditType orderEditType)
+        public ActionResult Edit([Bind(Include = "OrderId,OrderPaymentDate,OrderTypeId,ClientId,EmployeeId")] Order order)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(orderEditType).State = EntityState.Modified;
+                db.Entry(order).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(orderEditType);
+            ViewBag.OrderTypeId = new SelectList(db.OrderTypes, "OrderTypeId", "OrderTypeValue", order.OrderTypeId);
+            return View(order);
         }
 
-        // GET: OrderEditTypes/Delete/5
+        // GET: Orders/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderEditType orderEditType = db.OrderEditTypes.Find(id);
-            if (orderEditType == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(orderEditType);
+            return View(order);
         }
 
-        // POST: OrderEditTypes/Delete/5
+        // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            OrderEditType orderEditType = db.OrderEditTypes.Find(id);
-            db.OrderEditTypes.Remove(orderEditType);
+            Order order = db.Orders.Find(id);
+            db.Orders.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

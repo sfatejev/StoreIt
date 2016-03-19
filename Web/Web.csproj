@@ -190,10 +190,10 @@
     <Content Include="Areas\Store\Views\web.config" />
     <Content Include="Areas\Orders\Views\web.config" />
     <Content Include="Areas\Users\Views\web.config" />
-    <Content Include="Areas\Orders\Views\Shared\_ViewStart.cshtml" />
-    <Content Include="Areas\People\Views\Shared\_ViewStart.cshtml" />
-    <Content Include="Areas\Store\Views\Shared\_ViewStart.cshtml" />
-    <Content Include="Areas\Users\Views\Shared\_ViewStart.cshtml" />
+    <Content Include="Areas\People\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Store\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Users\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Orders\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -318,9 +318,13 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Orders\Models\" />
+    <Folder Include="Areas\Orders\Views\Shared\" />
     <Folder Include="Areas\People\Models\" />
+    <Folder Include="Areas\People\Views\Shared\" />
     <Folder Include="Areas\Store\Models\" />
+    <Folder Include="Areas\Store\Views\Shared\" />
     <Folder Include="Areas\Users\Models\" />
+    <Folder Include="Areas\Users\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

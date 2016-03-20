@@ -1,6 +1,8 @@
-﻿namespace DAL.Interfaces.Orders
+﻿using Domain.Orders;
+
+namespace DAL.Interfaces.Orders
 {
-    public interface IOrderRepository
+    public interface IOrderRepository : IEFRepository<Order>
     {
          
     }

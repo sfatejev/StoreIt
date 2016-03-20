@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Domain.People;
 
 namespace Domain.Orders
@@ -22,5 +19,6 @@ namespace Domain.Orders
         public virtual Person Employee { get; set; }
 
         public virtual List<OrderEdit> OrderEdits { get; set; }
+        public virtual List<OrderedProduct> OrderedProducts { get; set; }
     }
 }

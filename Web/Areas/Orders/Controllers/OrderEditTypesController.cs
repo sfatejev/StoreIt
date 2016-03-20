@@ -1,117 +1,113 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Domain.People;
 using DAL;
+using Domain.Orders;
 
-namespace Web.Controllers.People
+namespace Web.Controllers.Orders
 {
-    public class ContactTypesController : Controller
+    public class OrderEditTypesController : Controller
     {
         private StoreItDbContext db = new StoreItDbContext();
 
-        // GET: ContactTypes
+        // GET: OrderEditTypes
         public ActionResult Index()
         {
-            return View(db.ContactTypes.ToList());
+            return View(db.OrderEditTypes.ToList());
         }
 
-        // GET: ContactTypes/Details/5
+        // GET: OrderEditTypes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ContactType contactType = db.ContactTypes.Find(id);
-            if (contactType == null)
+            OrderEditType orderEditType = db.OrderEditTypes.Find(id);
+            if (orderEditType == null)
             {
                 return HttpNotFound();
             }
-            return View(contactType);
+            return View(orderEditType);
         }
 
-        // GET: ContactTypes/Create
+        // GET: OrderEditTypes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ContactTypes/Create
+        // POST: OrderEditTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContactTypeId,ContactTypeValue,ContactTypeActive")] ContactType contactType)
+        public ActionResult Create([Bind(Include = "OrderEditTypeId,OrderEditTypeValue,OrderEditTypeDescription,OrderEditTypeActive")] OrderEditType orderEditType)
         {
             if (ModelState.IsValid)
             {
-                db.ContactTypes.Add(contactType);
+                db.OrderEditTypes.Add(orderEditType);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(contactType);
+            return View(orderEditType);
         }
 
-        // GET: ContactTypes/Edit/5
+        // GET: OrderEditTypes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ContactType contactType = db.ContactTypes.Find(id);
-            if (contactType == null)
+            OrderEditType orderEditType = db.OrderEditTypes.Find(id);
+            if (orderEditType == null)
             {
                 return HttpNotFound();
             }
-            return View(contactType);
+            return View(orderEditType);
         }
 
-        // POST: ContactTypes/Edit/5
+        // POST: OrderEditTypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ContactTypeId,ContactTypeValue,ContactTypeActive")] ContactType contactType)
+        public ActionResult Edit([Bind(Include = "OrderEditTypeId,OrderEditTypeValue,OrderEditTypeDescription,OrderEditTypeActive")] OrderEditType orderEditType)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(contactType).State = EntityState.Modified;
+                db.Entry(orderEditType).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(contactType);
+            return View(orderEditType);
         }
 
-        // GET: ContactTypes/Delete/5
+        // GET: OrderEditTypes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ContactType contactType = db.ContactTypes.Find(id);
-            if (contactType == null)
+            OrderEditType orderEditType = db.OrderEditTypes.Find(id);
+            if (orderEditType == null)
             {
                 return HttpNotFound();
             }
-            return View(contactType);
+            return View(orderEditType);
         }
 
-        // POST: ContactTypes/Delete/5
+        // POST: OrderEditTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ContactType contactType = db.ContactTypes.Find(id);
-            db.ContactTypes.Remove(contactType);
+            OrderEditType orderEditType = db.OrderEditTypes.Find(id);
+            db.OrderEditTypes.Remove(orderEditType);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

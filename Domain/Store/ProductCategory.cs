@@ -16,6 +16,6 @@ namespace Domain.Store
         public String ProductCategoryDescription { get; set; }
         public bool ProductCategoryActive { get; set; }
 
-        public virtual List<ProductCategory> ProductCategories { get; set; }
+        public virtual List<Product> Products { get; set; }
     }
 }

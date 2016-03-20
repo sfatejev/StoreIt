@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Domain.Orders;
 using DAL;
+using Domain.Orders;
 
-namespace Web.Controllers
+namespace Web.Controllers.Orders
 {
     public class OrdersController : Controller
     {

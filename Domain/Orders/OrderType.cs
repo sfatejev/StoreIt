@@ -12,10 +12,10 @@ namespace Domain.Orders
         public int OrderTypeId { get; set; }
 
         [MaxLength(32)]
-        public String OrderTypeValue { get; set; } //TODO max 32 digits
+        public string OrderTypeValue { get; set; } //TODO max 32 digits
 
         [MaxLength(256)]
-        public String OrderTypeDescription { get; set; }
+        public string OrderTypeDescription { get; set; }
         public bool OrderTypeActive { get; set; }
 
         public virtual List<Order> Orders { get; set; }

@@ -3,7 +3,7 @@ namespace DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialDbMigration : DbMigration
+    public partial class DatabaseFixDueToAnomaly : DbMigration
     {
         public override void Up()
         {
@@ -60,8 +60,8 @@ namespace DAL.Migrations
                     })
                 .PrimaryKey(t => t.OrderEditId)
                 .ForeignKey("dbo.Orders", t => t.OrderId, cascadeDelete: true)
-                .ForeignKey("dbo.OrderEditTypes", t => t.OrderEditTypeId, cascadeDelete: true)
                 .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.OrderEditTypes", t => t.OrderEditTypeId, cascadeDelete: true)
                 .ForeignKey("dbo.People", t => t.Person_PersonId)
                 .Index(t => t.OrderEditTypeId)
                 .Index(t => t.UserId)
@@ -92,26 +92,64 @@ namespace DAL.Migrations
                 .Index(t => t.Person_PersonId);
             
             CreateTable(
-                "dbo.OrderTypes",
+                "dbo.OrderedProducts",
                 c => new
                     {
-                        OrderTypeId = c.Int(nullable: false, identity: true),
-                        OrderTypeValue = c.String(maxLength: 32),
-                        OrderTypeDescription = c.String(maxLength: 256),
-                        OrderTypeActive = c.Boolean(nullable: false),
+                        OrderedProductId = c.Int(nullable: false, identity: true),
+                        OrderedQuantity = c.Int(nullable: false),
+                        OrderedPrice = c.Single(nullable: false),
+                        OrderId = c.Int(nullable: false),
+                        ProductId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.OrderTypeId);
+                .PrimaryKey(t => t.OrderedProductId)
+                .ForeignKey("dbo.Orders", t => t.OrderId, cascadeDelete: true)
+                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
+                .Index(t => t.OrderId)
+                .Index(t => t.ProductId);
             
             CreateTable(
-                "dbo.OrderEditTypes",
+                "dbo.Products",
                 c => new
                     {
-                        OrderEditTypeId = c.Int(nullable: false, identity: true),
-                        OrderEditTypeValue = c.String(maxLength: 32),
-                        OrderEditTypeDescription = c.String(),
-                        OrderEditTypeActive = c.Boolean(nullable: false),
+                        ProductId = c.Int(nullable: false, identity: true),
+                        ProductName = c.String(maxLength: 32),
+                        ProductValue = c.Single(nullable: false),
+                        ProductActive = c.Boolean(nullable: false),
+                        ProductCategoryId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.OrderEditTypeId);
+                .PrimaryKey(t => t.ProductId)
+                .ForeignKey("dbo.ProductCategories", t => t.ProductCategoryId, cascadeDelete: true)
+                .Index(t => t.ProductCategoryId);
+            
+            CreateTable(
+                "dbo.ProductCategories",
+                c => new
+                    {
+                        ProductCategoryId = c.Int(nullable: false, identity: true),
+                        ProductCategoryValue = c.String(maxLength: 64),
+                        ProductCategoryDescription = c.String(),
+                        ProductCategoryActive = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.ProductCategoryId);
+            
+            CreateTable(
+                "dbo.ProductEdits",
+                c => new
+                    {
+                        ProductEditId = c.Int(nullable: false, identity: true),
+                        ProductEditTime = c.DateTime(nullable: false),
+                        ProductEditorId = c.Int(nullable: false),
+                        ProductEditTypeId = c.Int(nullable: false),
+                        ProductId = c.Int(nullable: false),
+                        ProductEditor_UserId = c.Int(),
+                    })
+                .PrimaryKey(t => t.ProductEditId)
+                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.ProductEditor_UserId)
+                .ForeignKey("dbo.ProductEditTypes", t => t.ProductEditTypeId, cascadeDelete: true)
+                .Index(t => t.ProductEditTypeId)
+                .Index(t => t.ProductId)
+                .Index(t => t.ProductEditor_UserId);
             
             CreateTable(
                 "dbo.Users",
@@ -168,67 +206,25 @@ namespace DAL.Migrations
                 .PrimaryKey(t => t.UserEditTypeId);
             
             CreateTable(
-                "dbo.ProductEdits",
+                "dbo.UserRoles",
                 c => new
                     {
-                        ProductEditId = c.Int(nullable: false, identity: true),
-                        ProductEditTime = c.DateTime(nullable: false),
-                        ProductEditorId = c.Int(nullable: false),
-                        ProductEditTypeId = c.Int(nullable: false),
-                        ProductId = c.Int(nullable: false),
-                        ProductEditor_UserId = c.Int(),
+                        UserRoleId = c.Int(nullable: false, identity: true),
+                        UserRoleName = c.String(maxLength: 32),
+                        UserRoleDescription = c.String(maxLength: 256),
+                        UserRoleActive = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.ProductEditId)
-                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
-                .ForeignKey("dbo.Users", t => t.ProductEditor_UserId)
-                .ForeignKey("dbo.ProductEditTypes", t => t.ProductEditTypeId, cascadeDelete: true)
-                .Index(t => t.ProductEditTypeId)
-                .Index(t => t.ProductId)
-                .Index(t => t.ProductEditor_UserId);
+                .PrimaryKey(t => t.UserRoleId);
             
             CreateTable(
-                "dbo.Products",
+                "dbo.ProductEditTypes",
                 c => new
                     {
-                        ProductId = c.Int(nullable: false, identity: true),
-                        ProductName = c.String(maxLength: 32),
-                        ProductValue = c.Single(nullable: false),
-                        ProductActive = c.Boolean(nullable: false),
-                        ProductCategoryId = c.Int(nullable: false),
+                        ProductEditTypeId = c.Int(nullable: false, identity: true),
+                        ProductEditTypeValue = c.String(maxLength: 64),
+                        ProductEditTypeActive = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.ProductId)
-                .ForeignKey("dbo.ProductCategories", t => t.ProductCategoryId, cascadeDelete: true)
-                .Index(t => t.ProductCategoryId);
-            
-            CreateTable(
-                "dbo.OrderedProducts",
-                c => new
-                    {
-                        OrderedProductId = c.Int(nullable: false, identity: true),
-                        OrderedQuantity = c.Int(nullable: false),
-                        OrderedPrice = c.Single(nullable: false),
-                        OrderId = c.Int(nullable: false),
-                        ProductId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.OrderedProductId)
-                .ForeignKey("dbo.Orders", t => t.OrderId, cascadeDelete: true)
-                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
-                .Index(t => t.OrderId)
-                .Index(t => t.ProductId);
-            
-            CreateTable(
-                "dbo.ProductCategories",
-                c => new
-                    {
-                        ProductCategoryId = c.Int(nullable: false, identity: true),
-                        ProductCategoryValue = c.String(maxLength: 64),
-                        ProductCategoryDescription = c.String(),
-                        ProductCategoryActive = c.Boolean(nullable: false),
-                        ProductCategory_ProductCategoryId = c.Int(),
-                    })
-                .PrimaryKey(t => t.ProductCategoryId)
-                .ForeignKey("dbo.ProductCategories", t => t.ProductCategory_ProductCategoryId)
-                .Index(t => t.ProductCategory_ProductCategoryId);
+                .PrimaryKey(t => t.ProductEditTypeId);
             
             CreateTable(
                 "dbo.StoredProducts",
@@ -255,25 +251,26 @@ namespace DAL.Migrations
                 .PrimaryKey(t => t.StorageId);
             
             CreateTable(
-                "dbo.ProductEditTypes",
+                "dbo.OrderTypes",
                 c => new
                     {
-                        ProductEditTypeId = c.Int(nullable: false, identity: true),
-                        ProductEditTypeValue = c.String(maxLength: 64),
-                        ProductEditTypeActive = c.Boolean(nullable: false),
+                        OrderTypeId = c.Int(nullable: false, identity: true),
+                        OrderTypeValue = c.String(maxLength: 32),
+                        OrderTypeDescription = c.String(maxLength: 256),
+                        OrderTypeActive = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.ProductEditTypeId);
+                .PrimaryKey(t => t.OrderTypeId);
             
             CreateTable(
-                "dbo.UserRoles",
+                "dbo.OrderEditTypes",
                 c => new
                     {
-                        UserRoleId = c.Int(nullable: false, identity: true),
-                        UserRoleName = c.String(maxLength: 32),
-                        UserRoleDescription = c.String(maxLength: 256),
-                        UserRoleActive = c.Boolean(nullable: false),
+                        OrderEditTypeId = c.Int(nullable: false, identity: true),
+                        OrderEditTypeValue = c.String(maxLength: 32),
+                        OrderEditTypeDescription = c.String(),
+                        OrderEditTypeActive = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.UserRoleId);
+                .PrimaryKey(t => t.OrderEditTypeId);
             
             CreateTable(
                 "dbo.PersonTypes",
@@ -293,16 +290,13 @@ namespace DAL.Migrations
             DropForeignKey("dbo.People", "PersonTypeId", "dbo.PersonTypes");
             DropForeignKey("dbo.Orders", "Person_PersonId", "dbo.People");
             DropForeignKey("dbo.OrderEdits", "Person_PersonId", "dbo.People");
-            DropForeignKey("dbo.Users", "UserRoleId", "dbo.UserRoles");
-            DropForeignKey("dbo.ProductEdits", "ProductEditTypeId", "dbo.ProductEditTypes");
-            DropForeignKey("dbo.ProductEdits", "ProductEditor_UserId", "dbo.Users");
+            DropForeignKey("dbo.OrderEdits", "OrderEditTypeId", "dbo.OrderEditTypes");
+            DropForeignKey("dbo.Orders", "OrderTypeId", "dbo.OrderTypes");
             DropForeignKey("dbo.StoredProducts", "StorageId", "dbo.Storages");
             DropForeignKey("dbo.StoredProducts", "ProductId", "dbo.Products");
-            DropForeignKey("dbo.ProductEdits", "ProductId", "dbo.Products");
-            DropForeignKey("dbo.Products", "ProductCategoryId", "dbo.ProductCategories");
-            DropForeignKey("dbo.ProductCategories", "ProductCategory_ProductCategoryId", "dbo.ProductCategories");
-            DropForeignKey("dbo.OrderedProducts", "ProductId", "dbo.Products");
-            DropForeignKey("dbo.OrderedProducts", "OrderId", "dbo.Orders");
+            DropForeignKey("dbo.ProductEdits", "ProductEditTypeId", "dbo.ProductEditTypes");
+            DropForeignKey("dbo.Users", "UserRoleId", "dbo.UserRoles");
+            DropForeignKey("dbo.ProductEdits", "ProductEditor_UserId", "dbo.Users");
             DropForeignKey("dbo.Users", "PersonId", "dbo.People");
             DropForeignKey("dbo.OrderEdits", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserEdits", "User_UserId2", "dbo.Users");
@@ -310,8 +304,10 @@ namespace DAL.Migrations
             DropForeignKey("dbo.UserEdits", "UserEditTypeId", "dbo.UserEditTypes");
             DropForeignKey("dbo.UserEdits", "UserEditor_UserId", "dbo.Users");
             DropForeignKey("dbo.UserEdits", "User_UserId", "dbo.Users");
-            DropForeignKey("dbo.OrderEdits", "OrderEditTypeId", "dbo.OrderEditTypes");
-            DropForeignKey("dbo.Orders", "OrderTypeId", "dbo.OrderTypes");
+            DropForeignKey("dbo.ProductEdits", "ProductId", "dbo.Products");
+            DropForeignKey("dbo.Products", "ProductCategoryId", "dbo.ProductCategories");
+            DropForeignKey("dbo.OrderedProducts", "ProductId", "dbo.Products");
+            DropForeignKey("dbo.OrderedProducts", "OrderId", "dbo.Orders");
             DropForeignKey("dbo.OrderEdits", "OrderId", "dbo.Orders");
             DropForeignKey("dbo.Orders", "Employee_PersonId", "dbo.People");
             DropForeignKey("dbo.Orders", "Client_PersonId", "dbo.People");
@@ -319,13 +315,6 @@ namespace DAL.Migrations
             DropForeignKey("dbo.Contacts", "ContactTypeId", "dbo.ContactTypes");
             DropIndex("dbo.StoredProducts", new[] { "ProductId" });
             DropIndex("dbo.StoredProducts", new[] { "StorageId" });
-            DropIndex("dbo.ProductCategories", new[] { "ProductCategory_ProductCategoryId" });
-            DropIndex("dbo.OrderedProducts", new[] { "ProductId" });
-            DropIndex("dbo.OrderedProducts", new[] { "OrderId" });
-            DropIndex("dbo.Products", new[] { "ProductCategoryId" });
-            DropIndex("dbo.ProductEdits", new[] { "ProductEditor_UserId" });
-            DropIndex("dbo.ProductEdits", new[] { "ProductId" });
-            DropIndex("dbo.ProductEdits", new[] { "ProductEditTypeId" });
             DropIndex("dbo.UserEdits", new[] { "User_UserId2" });
             DropIndex("dbo.UserEdits", new[] { "User_UserId1" });
             DropIndex("dbo.UserEdits", new[] { "UserEditor_UserId" });
@@ -333,6 +322,12 @@ namespace DAL.Migrations
             DropIndex("dbo.UserEdits", new[] { "UserEditTypeId" });
             DropIndex("dbo.Users", new[] { "PersonId" });
             DropIndex("dbo.Users", new[] { "UserRoleId" });
+            DropIndex("dbo.ProductEdits", new[] { "ProductEditor_UserId" });
+            DropIndex("dbo.ProductEdits", new[] { "ProductId" });
+            DropIndex("dbo.ProductEdits", new[] { "ProductEditTypeId" });
+            DropIndex("dbo.Products", new[] { "ProductCategoryId" });
+            DropIndex("dbo.OrderedProducts", new[] { "ProductId" });
+            DropIndex("dbo.OrderedProducts", new[] { "OrderId" });
             DropIndex("dbo.Orders", new[] { "Person_PersonId" });
             DropIndex("dbo.Orders", new[] { "Employee_PersonId" });
             DropIndex("dbo.Orders", new[] { "Client_PersonId" });
@@ -345,19 +340,19 @@ namespace DAL.Migrations
             DropIndex("dbo.Contacts", new[] { "PersonId" });
             DropIndex("dbo.Contacts", new[] { "ContactTypeId" });
             DropTable("dbo.PersonTypes");
-            DropTable("dbo.UserRoles");
-            DropTable("dbo.ProductEditTypes");
+            DropTable("dbo.OrderEditTypes");
+            DropTable("dbo.OrderTypes");
             DropTable("dbo.Storages");
             DropTable("dbo.StoredProducts");
-            DropTable("dbo.ProductCategories");
-            DropTable("dbo.OrderedProducts");
-            DropTable("dbo.Products");
-            DropTable("dbo.ProductEdits");
+            DropTable("dbo.ProductEditTypes");
+            DropTable("dbo.UserRoles");
             DropTable("dbo.UserEditTypes");
             DropTable("dbo.UserEdits");
             DropTable("dbo.Users");
-            DropTable("dbo.OrderEditTypes");
-            DropTable("dbo.OrderTypes");
+            DropTable("dbo.ProductEdits");
+            DropTable("dbo.ProductCategories");
+            DropTable("dbo.Products");
+            DropTable("dbo.OrderedProducts");
             DropTable("dbo.Orders");
             DropTable("dbo.OrderEdits");
             DropTable("dbo.People");

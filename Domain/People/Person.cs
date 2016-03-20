@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,5 +28,8 @@ namespace Domain.People
         public virtual List<User> Users { get; set; }
         public virtual List<OrderEdit> OrderEdits { get; set; }
         public virtual List<Order> Orders { get; set; }
+
+        [NotMapped]
+        public string FirstLastname => (Firstname + " " + Lastname).Trim();
     }
 }

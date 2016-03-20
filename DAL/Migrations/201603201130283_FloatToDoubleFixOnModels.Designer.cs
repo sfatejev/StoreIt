@@ -7,13 +7,13 @@ namespace DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialDbMigration : IMigrationMetadata
+    public sealed partial class FloatToDoubleFixOnModels : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialDbMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FloatToDoubleFixOnModels));
         
         string IMigrationMetadata.Id
         {
-            get { return "201603141024578_InitialDbMigration"; }
+            get { return "201603201130283_FloatToDoubleFixOnModels"; }
         }
         
         string IMigrationMetadata.Source

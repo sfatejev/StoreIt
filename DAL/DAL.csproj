@@ -70,11 +70,15 @@
     <Compile Include="Interfaces\Users\IUserEditTypeRepository.cs" />
     <Compile Include="Interfaces\Users\IUserRepository.cs" />
     <Compile Include="Interfaces\Users\IUserRoleRepository.cs" />
-    <Compile Include="Migrations\201603141024578_InitialDbMigration.cs" />
-    <Compile Include="Migrations\201603141024578_InitialDbMigration.Designer.cs">
-      <DependentUpon>201603141024578_InitialDbMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201603191420267_DatabaseFixDueToAnomaly.cs" />
+    <Compile Include="Migrations\201603191420267_DatabaseFixDueToAnomaly.Designer.cs">
+      <DependentUpon>201603191420267_DatabaseFixDueToAnomaly.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\MigrationsConfiguration.cs" />
+    <Compile Include="Migrations\201603201130283_FloatToDoubleFixOnModels.cs" />
+    <Compile Include="Migrations\201603201130283_FloatToDoubleFixOnModels.Designer.cs">
+      <DependentUpon>201603201130283_FloatToDoubleFixOnModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MigrationConfiguration.cs" />
     <Compile Include="Repositories\EFRepository.cs" />
     <Compile Include="Repositories\Orders\OrderEditRepository.cs" />
     <Compile Include="Repositories\Orders\OrderEditTypeRepository.cs" />
@@ -109,11 +113,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603141024578_InitialDbMigration.resx">
-      <DependentUpon>201603141024578_InitialDbMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201603191420267_DatabaseFixDueToAnomaly.resx">
+      <DependentUpon>201603191420267_DatabaseFixDueToAnomaly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603201130283_FloatToDoubleFixOnModels.resx">
+      <DependentUpon>201603201130283_FloatToDoubleFixOnModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -19,7 +19,7 @@ namespace DAL
         public StoreItDbContext() : base("StoreItDbConnectionString")
         {
             Database.SetInitializer(
-                new MigrateDatabaseToLatestVersion<StoreItDbContext, MigrationsConfiguration>());
+                new MigrateDatabaseToLatestVersion<StoreItDbContext, MigrationConfiguration>());
 #if DEBUG
             Database.Log = s => Trace.Write(s);
 #endif

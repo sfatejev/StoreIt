@@ -121,7 +121,7 @@ namespace DAL.Migrations
                 );
 
             context.OrderedProducts.AddOrUpdate(
-                new OrderedProduct { OrderId = 1, ProductId = 1, OrderedPrice = 130, OrderedQuantity = 2},
+                new OrderedProduct { OrderId = 1, ProductId = 1, OrderedPrice = 130.1, OrderedQuantity = 2},
                 new OrderedProduct { OrderId = 1, ProductId = 2, OrderedPrice = 75, OrderedQuantity = 2 },
                 new OrderedProduct { OrderId = 1, ProductId = 3, OrderedPrice = 400, OrderedQuantity = 1 },
                 new OrderedProduct { OrderId = 2, ProductId = 2, OrderedPrice = 65, OrderedQuantity = 3 },

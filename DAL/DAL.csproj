@@ -74,6 +74,10 @@
     <Compile Include="Migrations\201603191420267_DatabaseFixDueToAnomaly.Designer.cs">
       <DependentUpon>201603191420267_DatabaseFixDueToAnomaly.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603201130283_FloatToDoubleFixOnModels.cs" />
+    <Compile Include="Migrations\201603201130283_FloatToDoubleFixOnModels.Designer.cs">
+      <DependentUpon>201603201130283_FloatToDoubleFixOnModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MigrationConfiguration.cs" />
     <Compile Include="Repositories\EFRepository.cs" />
     <Compile Include="Repositories\Orders\OrderEditRepository.cs" />
@@ -111,6 +115,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201603191420267_DatabaseFixDueToAnomaly.resx">
       <DependentUpon>201603191420267_DatabaseFixDueToAnomaly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603201130283_FloatToDoubleFixOnModels.resx">
+      <DependentUpon>201603201130283_FloatToDoubleFixOnModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

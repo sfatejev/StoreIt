@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<arved>
+  <arve number="" kuupäev="">
+    <koostaja eesnimi="" perenimi=""/>
+    <tellija eesnimi="" perenimi=""/>
+    <kontaktandmed väärtus="" tüüp=""/> <!--meie ettevõtte omad-->
+    <tellitudTooted>
+      <toode nimi="" kogus="" ühik="" kategooria="" aktiivne="true">
+        <hind väärtus="" valuuta=""/>
+        <kirjeldus><![CDATA[banaan]]></kirjeldus>
+      </toode>
+    </tellitudTooted>
+    <käibemaksumäär väärtus=""/>
+    <summad>
+      <käibemaksuta väärtus="" valuuta=""/>
+      <käibemaksuga väärtus="" valuuta=""/>
+    </summad>
+    <lisainfo><![CDATA[lisainfo]]></lisainfo>
+    <tähtaeg kuupäev=""/>
+  </arve>
+</arved>

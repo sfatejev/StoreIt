@@ -9,6 +9,7 @@ using DAL;
 using DAL.Interfaces.Orders;
 using DAL.Repositories.Orders;
 using Domain.Orders;
+using Domain.People;
 
 namespace BLL.Services
 {

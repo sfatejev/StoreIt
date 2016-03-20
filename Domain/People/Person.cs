@@ -30,6 +30,6 @@ namespace Domain.People
         public virtual List<Order> Orders { get; set; }
 
         [NotMapped]
-        public string FirstLastname => (Firstname + " " + Lastname).Trim();
+        public string FirstLastname => (Firstname + " " + Lastname).Trim();        
     }
 }

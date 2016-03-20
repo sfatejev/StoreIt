@@ -20,5 +20,12 @@ namespace Domain.Orders
 
         public virtual List<OrderEdit> OrderEdits { get; set; }
         public virtual List<OrderedProduct> OrderedProducts { get; set; }
+
+        protected Order()
+        {
+            
+        }
+
+        public Order(int num = 0) { }
     }
 }

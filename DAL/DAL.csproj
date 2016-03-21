@@ -49,7 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDbContext.cs" />
+    <Compile Include="Helpers\EFRepositoryFactory.cs" />
+    <Compile Include="Helpers\EFRepositoryProvider.cs" />
+    <Compile Include="Helpers\FormattedDbEntityValidationException.cs" />
+    <Compile Include="Interfaces\IDbContext.cs" />
+    <Compile Include="Interfaces\IEFRepositoryProvider.cs" />
+    <Compile Include="Interfaces\IUOW.cs" />
     <Compile Include="Interfaces\Orders\IOrderEditRepository.cs" />
     <Compile Include="Interfaces\Orders\IOrderEditTypeRepository.cs" />
     <Compile Include="Interfaces\Orders\IOrderedProductRepository.cs" />
@@ -77,6 +82,18 @@
     <Compile Include="Migrations\201603201130283_FloatToDoubleFixOnModels.cs" />
     <Compile Include="Migrations\201603201130283_FloatToDoubleFixOnModels.Designer.cs">
       <DependentUpon>201603201130283_FloatToDoubleFixOnModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603202258008_EmployeeAndClientFixOnOrderModel.cs" />
+    <Compile Include="Migrations\201603202258008_EmployeeAndClientFixOnOrderModel.Designer.cs">
+      <DependentUpon>201603202258008_EmployeeAndClientFixOnOrderModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603202303050_RollBack.cs" />
+    <Compile Include="Migrations\201603202303050_RollBack.Designer.cs">
+      <DependentUpon>201603202303050_RollBack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603211234160_BiDirectionalNavigationPropertyFixOnOrderEntity.cs" />
+    <Compile Include="Migrations\201603211234160_BiDirectionalNavigationPropertyFixOnOrderEntity.Designer.cs">
+      <DependentUpon>201603211234160_BiDirectionalNavigationPropertyFixOnOrderEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\MigrationConfiguration.cs" />
     <Compile Include="Repositories\EFRepository.cs" />
@@ -119,7 +136,17 @@
     <EmbeddedResource Include="Migrations\201603201130283_FloatToDoubleFixOnModels.resx">
       <DependentUpon>201603201130283_FloatToDoubleFixOnModels.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603202258008_EmployeeAndClientFixOnOrderModel.resx">
+      <DependentUpon>201603202258008_EmployeeAndClientFixOnOrderModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603202303050_RollBack.resx">
+      <DependentUpon>201603202303050_RollBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603211234160_BiDirectionalNavigationPropertyFixOnOrderEntity.resx">
+      <DependentUpon>201603211234160_BiDirectionalNavigationPropertyFixOnOrderEntity.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

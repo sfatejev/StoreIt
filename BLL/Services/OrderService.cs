@@ -36,7 +36,7 @@ namespace BLL.Services
 
         public void SerializeOrder(OrderDTO order)
         {
-            using (StreamWriter streamer = new StreamWriter("arved.xml"))
+            using (StreamWriter streamer = new StreamWriter("C:/Users/Marko/Documents/Visual Studio 2015/Projects/StoreIt/arved.xml"))
             {
                 XmlSerializer xmler = new XmlSerializer(typeof(OrderDTO));
                 xmler.Serialize(streamer, order);

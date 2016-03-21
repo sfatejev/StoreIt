@@ -18,10 +18,11 @@ namespace ConsoleTestApp
     {
         static void Main(string[] args)
         { 
+            
             IDbContext ctx = new StoreItDbContext();
+            
             OrderService orderService = new OrderService(ctx);
-            orderService.GetOrders();
-
+            var orders = orderService.GetOrders();
             orderService.SerializeOrder(orderService.GetOrderById(1));
         }
     }

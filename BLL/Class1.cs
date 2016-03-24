@@ -8,5 +8,6 @@ namespace BLL
 {
     public class Class1
     {
+        //himaalaja brrr - Kaspari test, no kahvel only oks
     }
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OrderDTO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" OrderId="1">
+  <Employee>
+    <FullName>Peeter Pakiraam</FullName>
+    <MainContact>
+      <ContactValue>5553325</ContactValue>
+      <ContactTypeValue>Mobiiltelefon</ContactTypeValue>
+    </MainContact>
+  </Employee>
+  <Client>
+    <FullName>Paula Pakiraam</FullName>
+    <MainContact>
+      <ContactValue>5552351</ContactValue>
+      <ContactTypeValue>Mobiiltelefon</ContactTypeValue>
+    </MainContact>
+  </Client>
+  <OrderType>Arve</OrderType>
+  <PaymentDate>2016-06-20T00:00:00</PaymentDate>
+  <OrderedProducts>
+    <OrderedProductDTO OrderedProductId="1">
+      <OrderedProductName>Veepump</OrderedProductName>
+      <OrderedQuantity>2</OrderedQuantity>
+      <OrderedPrice>130.1</OrderedPrice>
+    </OrderedProductDTO>
+    <OrderedProductDTO OrderedProductId="2">
+      <OrderedProductName>Hammasrihm</OrderedProductName>
+      <OrderedQuantity>2</OrderedQuantity>
+      <OrderedPrice>75</OrderedPrice>
+    </OrderedProductDTO>
+    <OrderedProductDTO OrderedProductId="3">
+      <OrderedProductName>Sillaremondi komplekt</OrderedProductName>
+      <OrderedQuantity>1</OrderedQuantity>
+      <OrderedPrice>400</OrderedPrice>
+    </OrderedProductDTO>
+  </OrderedProducts>
+</OrderDTO>

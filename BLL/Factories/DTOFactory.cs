@@ -16,7 +16,7 @@ namespace BLL.Factories
                 OrderId = order.OrderId,
                 Employee = CreatePersonDTO(order.Employee),
                 Client = CreatePersonDTO(order.Client),
-                OrderType = order.OrderType.OrderTypeValue,
+                OrderType = order.OrderType.OrderTypeValue.ToString(),
                 PaymentDate = order.OrderPaymentDate,
                 OrderedProducts = order.OrderedProducts.Select(CreateOrderedProductDTO).ToList()
             };
@@ -27,7 +27,7 @@ namespace BLL.Factories
             return new ContactDTO()
             {
                 ContactValue = contact.ContactValue,
-                ContactTypeValue = contact.ContactType.ContactTypeValue
+                ContactTypeValue = contact.ContactType.ContactTypeValue.ToString()
             };
         }
 
@@ -45,7 +45,7 @@ namespace BLL.Factories
             return new OrderedProductDTO()
             {
                 OrderedProductId = orderedProduct.OrderedProductId,
-                OrderedProductName = orderedProduct.Product.ProductName,
+                OrderedProductName = orderedProduct.Product.ProductName.ToString(),
                 OrderedQuantity = orderedProduct.OrderedQuantity,
                 OrderedPrice = orderedProduct.OrderedPrice
             };

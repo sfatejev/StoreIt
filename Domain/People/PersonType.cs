@@ -12,8 +12,8 @@ namespace Domain.People
         public int PersonTypeId { get; set; }
         
         [MaxLength(64)]
-        public String PersonTypeValue { get; set; }
-        public String PersonTypeDescription { get; set; }
+        public MultiLangString PersonTypeValue { get; set; }
+        public MultiLangString PersonTypeDescription { get; set; }
         public bool PersonTypeActive { get; set; }
 
         public virtual List<Person> Persons { get; set; }

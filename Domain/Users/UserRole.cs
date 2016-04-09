@@ -4,20 +4,32 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Domain.Users
 {
-    public class UserRole
+    /// <summary>
+    ///     EntityType that represents a user belonging to a role, PK - int
+    /// </summary>
+    public class UserRole : UserRole<int, Role, User, UserClaim, UserLogin, UserRole>
     {
-        public int UserRoleId { get; set; }
+    }
 
-        [MaxLength(32)]
-        public String UserRoleName { get; set; }      
-        [MaxLength(256)]
-        public String UserRoleDescription { get; set; }
+    /// <summary>
+    ///     EntityType that represents a user belonging to a role, generic
+    ///     TKey - type for Id (string, int)
+    /// </summary>
+    public class UserRole<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole>
+        where TRole : Role<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole>
+        where TUser : User<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole>
+        where TUserClaim : UserClaim<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole>
+        where TUserLogin : UserLogin<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole>
+        where TUserRole : UserRole<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole>
+    {
+        public TKey UserId { get; set; }
+        public virtual TUser User { get; set; }
 
-        public bool UserRoleActive { get; set; }
-
-        public virtual List<User> Users { get; set; }
+        public TKey RoleId { get; set; }
+        public virtual TRole Role { get; set; }
     }
 }

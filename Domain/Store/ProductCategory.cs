@@ -12,8 +12,8 @@ namespace Domain.Store
         public int ProductCategoryId { get; set; }
 
         [MaxLength(64)]
-        public String ProductCategoryValue { get; set; } 
-        public String ProductCategoryDescription { get; set; }
+        public MultiLangString ProductCategoryValue { get; set; } 
+        public MultiLangString ProductCategoryDescription { get; set; }
         public bool ProductCategoryActive { get; set; }
 
         public virtual List<Product> Products { get; set; }

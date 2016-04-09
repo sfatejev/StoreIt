@@ -32,7 +32,7 @@ namespace DAL.Migrations
             //    );
             //
 
-
+            /*
             #region Person seed
             context.ContactTypes.AddOrUpdate(
                 new ContactType { ContactTypeId = 1, ContactTypeActive = true, ContactTypeValue = "Mobiiltelefon" },
@@ -127,7 +127,7 @@ namespace DAL.Migrations
                 new OrderedProduct { OrderedProductId = 4, OrderId = 2, ProductId = 2, OrderedPrice = 65, OrderedQuantity = 3 },
                 new OrderedProduct { OrderedProductId = 5, OrderId = 2, ProductId = 4, OrderedPrice = 2000, OrderedQuantity = 1 }
                 );
-            #endregion
+            #endregion */
         }
     }
 }

@@ -33,6 +33,9 @@ namespace Domain.People
         public virtual List<Order> OrdersCreatedAsEmployee { get; set; }
 
         [NotMapped]
-        public string FirstLastname => (Firstname + " " + Lastname).Trim();        
+        public string FirstLastname => (Firstname + " " + Lastname).Trim();
+
+        [NotMapped]
+        public string LastFirstname => (Lastname + " " + Firstname).Trim();
     }
 }

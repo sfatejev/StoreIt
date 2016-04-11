@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,15 @@ namespace Domain.People
         public virtual List<Contact> Contacts { get; set; }
         public virtual List<User> Users { get; set; }
         public virtual List<OrderEdit> OrderEdits { get; set; }
-        public virtual List<Order> Orders { get; set; }
+        [InverseProperty("Client")]
+        public virtual List<Order> OrdersAsClient { get; set; }
+        [InverseProperty("Employee")]
+        public virtual List<Order> OrdersCreatedAsEmployee { get; set; }
+
+        [NotMapped]
+        public string FirstLastname => (Firstname + " " + Lastname).Trim();
+
+        [NotMapped]
+        public string LastFirstname => (Lastname + " " + Firstname).Trim();
     }
 }

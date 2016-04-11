@@ -12,7 +12,7 @@ namespace Domain.People
         public int ContactTypeId { get; set; }
 
         [MaxLength(64)]
-        public String ContactTypeValue { get; set; }
+        public MultiLangString ContactTypeValue { get; set; }
         public bool ContactTypeActive { get; set; }
 
         public virtual List<Contact> Contacts { get; set; }

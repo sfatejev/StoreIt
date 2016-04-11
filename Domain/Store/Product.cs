@@ -13,8 +13,8 @@ namespace Domain.Store
         public int ProductId { get; set; }
 
         [MaxLength(32)]
-        public String ProductName { get; set; } 
-        public float ProductValue { get; set; } //TODO 2 digits after comma, 8 digits max
+        public MultiLangString ProductName { get; set; } 
+        public double ProductValue { get; set; } //TODO 2 digits after comma, 8 digits max
         public bool ProductActive { get; set; }
 
         public int ProductCategoryId { get; set; }

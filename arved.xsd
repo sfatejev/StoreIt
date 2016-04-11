@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="arved">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="128" name="arve">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="koostaja">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="kontaktandmed">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="16" name="kontakt">
+                            <xs:complexType>
+                              <xs:attribute name="väärtus" type="xs:string" use="required" />
+                              <xs:attribute name="tüüp" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="eesnimi" type="xs:string" use="required" />
+                  <xs:attribute name="perenimi" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="tellija">
+                <xs:complexType>
+                  <xs:attribute name="eesnimi" type="xs:string" use="required" />
+                  <xs:attribute name="perenimi" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="tarneviis">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="tarnija">
+                      <xs:complexType>
+                        <xs:attribute name="nimi" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="nimetus" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="tellitudTooted">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="128" name="toode">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="tavahind">
+                            <xs:complexType>
+                              <xs:attribute name="väärtus" type="xs:decimal" use="required" />
+                              <xs:attribute name="valuuta" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="soodushind">
+                            <xs:complexType>
+                              <xs:attribute name="väärtus" type="xs:decimal" />
+                              <xs:attribute name="valuuta" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="kirjeldus" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="nimi" type="xs:string" use="required" />
+                        <xs:attribute name="kogus" type="xs:unsignedByte" use="required" />
+                        <xs:attribute name="ühik" type="xs:string" use="required" />
+                        <xs:attribute name="kategooria" type="xs:string" />
+                        <xs:attribute name="aktiivne" type="xs:boolean" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="käibemaksumäär">
+                <xs:complexType>
+                  <xs:attribute name="väärtus" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="summad">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="käibemaksuta">
+                      <xs:complexType>
+                        <xs:attribute name="väärtus" type="xs:decimal" use="required" />
+                        <xs:attribute name="valuuta" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="käibemaksuga">
+                      <xs:complexType>
+                        <xs:attribute name="väärtus" type="xs:decimal" use="required" />
+                        <xs:attribute name="valuuta" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="juriidilineInfo">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="pangakontod">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="32" name="pangakonto">
+                            <xs:complexType>
+                              <xs:attribute name="pangaNimi" type="xs:string" use="required" />
+                              <xs:attribute name="kontonr" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="kontaktandmed">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="32" name="kontakt">
+                            <xs:complexType>
+                              <xs:attribute name="väärtus" type="xs:string" use="required" />
+                              <xs:attribute name="tüüp" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="ettevõtteNimi" type="xs:string" use="required" />
+                  <xs:attribute name="registrikood" type="xs:unsignedInt" use="required" />
+                  <xs:attribute name="aadress" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="lisainfo" type="xs:string" />
+              <xs:element name="tähtaeg">
+                <xs:complexType>
+                  <xs:attribute name="kuupäev" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="number" type="xs:unsignedInt" use="required" />
+            <xs:attribute name="kuupäev" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

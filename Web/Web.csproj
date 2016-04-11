@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -56,36 +56,88 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.2.3\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -131,7 +183,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <HintPath>..\packages\WebActivatorEx.2.1.0\lib\net40\WebActivatorEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -144,26 +196,28 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Orders\OrdersAreaRegistration.cs" />
+    <Compile Include="Areas\People\PeopleAreaRegistration.cs" />
+    <Compile Include="Areas\Store\StoreAreaRegistration.cs" />
+    <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OrderEditsController.cs" />
-    <Compile Include="Controllers\OrderEditTypesController.cs" />
-    <Compile Include="Controllers\OrderedProductsController.cs" />
-    <Compile Include="Controllers\OrdersController.cs" />
-    <Compile Include="Controllers\OrderTypesController.cs" />
-    <Compile Include="Controllers\ContactsController.cs" />
-    <Compile Include="Controllers\ContactTypesController.cs" />
-    <Compile Include="Controllers\PeopleController.cs" />
-    <Compile Include="Controllers\PersonTypesController.cs" />
-    <Compile Include="Controllers\ProductCategoriesController.cs" />
-    <Compile Include="Controllers\ProductEditsController.cs" />
-    <Compile Include="Controllers\ProductEditTypesController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\StoragesController.cs" />
-    <Compile Include="Controllers\StoredProductsController.cs" />
-    <Compile Include="Controllers\UserEditsController.cs" />
-    <Compile Include="Controllers\UserEditTypesController.cs" />
-    <Compile Include="Controllers\UserRolesController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Areas\Orders\Controllers\OrderEditsController.cs" />
+    <Compile Include="Areas\Orders\Controllers\OrderEditTypesController.cs" />
+    <Compile Include="Areas\Orders\Controllers\OrderedProductsController.cs" />
+    <Compile Include="Areas\Orders\Controllers\OrdersController.cs" />
+    <Compile Include="Areas\Orders\Controllers\OrderTypesController.cs" />
+    <Compile Include="Areas\People\Controllers\ContactsController.cs" />
+    <Compile Include="Areas\People\Controllers\ContactTypesController.cs" />
+    <Compile Include="Areas\People\Controllers\PeopleController.cs" />
+    <Compile Include="Areas\People\Controllers\PersonTypesController.cs" />
+    <Compile Include="Areas\Store\Controllers\ProductCategoriesController.cs" />
+    <Compile Include="Areas\Store\Controllers\ProductEditsController.cs" />
+    <Compile Include="Areas\Store\Controllers\ProductEditTypesController.cs" />
+    <Compile Include="Areas\Store\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Store\Controllers\StoragesController.cs" />
+    <Compile Include="Areas\Store\Controllers\StoredProductsController.cs" />
+    <Compile Include="Areas\Users\Controllers\UserEditsController.cs" />
+    <Compile Include="Areas\Users\Controllers\UserEditTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,8 +234,17 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-2.2.1.js" />
-    <Content Include="Scripts\jquery-2.2.1.min.js" />
+    <Content Include="Areas\People\Views\web.config" />
+    <Content Include="Areas\Store\Views\web.config" />
+    <Content Include="Areas\Orders\Views\web.config" />
+    <Content Include="Areas\Users\Views\web.config" />
+    <Content Include="Areas\People\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Store\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Users\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Orders\Views\_ViewStart.cshtml" />
+    <None Include="Scripts\jquery-2.2.2.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.2.js" />
+    <Content Include="Scripts\jquery-2.2.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -207,124 +270,103 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\OrderEdits\Create.cshtml" />
-    <Content Include="Views\OrderEdits\Delete.cshtml" />
-    <Content Include="Views\OrderEdits\Details.cshtml" />
-    <Content Include="Views\OrderEdits\Edit.cshtml" />
-    <Content Include="Views\OrderEdits\Index.cshtml" />
-    <Content Include="Views\OrderEditTypes\Create.cshtml" />
-    <Content Include="Views\OrderEditTypes\Delete.cshtml" />
-    <Content Include="Views\OrderEditTypes\Details.cshtml" />
-    <Content Include="Views\OrderEditTypes\Edit.cshtml" />
-    <Content Include="Views\OrderEditTypes\Index.cshtml" />
-    <Content Include="Views\OrderedProducts\Create.cshtml" />
-    <Content Include="Views\OrderedProducts\Delete.cshtml" />
-    <Content Include="Views\OrderedProducts\Details.cshtml" />
-    <Content Include="Views\OrderedProducts\Edit.cshtml" />
-    <Content Include="Views\OrderedProducts\Index.cshtml" />
-    <Content Include="Views\Orders\Create.cshtml" />
-    <Content Include="Views\Orders\Delete.cshtml" />
-    <Content Include="Views\Orders\Details.cshtml" />
-    <Content Include="Views\Orders\Edit.cshtml" />
-    <Content Include="Views\Orders\Index.cshtml" />
-    <Content Include="Views\OrderTypes\Create.cshtml" />
-    <Content Include="Views\OrderTypes\Delete.cshtml" />
-    <Content Include="Views\OrderTypes\Details.cshtml" />
-    <Content Include="Views\OrderTypes\Edit.cshtml" />
-    <Content Include="Views\OrderTypes\Index.cshtml" />
-    <Content Include="Views\Contacts\Create.cshtml" />
-    <Content Include="Views\Contacts\Delete.cshtml" />
-    <Content Include="Views\Contacts\Details.cshtml" />
-    <Content Include="Views\Contacts\Edit.cshtml" />
-    <Content Include="Views\Contacts\Index.cshtml" />
-    <Content Include="Views\ContactTypes\Create.cshtml" />
-    <Content Include="Views\ContactTypes\Delete.cshtml" />
-    <Content Include="Views\ContactTypes\Details.cshtml" />
-    <Content Include="Views\ContactTypes\Edit.cshtml" />
-    <Content Include="Views\ContactTypes\Index.cshtml" />
-    <Content Include="Views\People\Create.cshtml" />
-    <Content Include="Views\People\Delete.cshtml" />
-    <Content Include="Views\People\Details.cshtml" />
-    <Content Include="Views\People\Edit.cshtml" />
-    <Content Include="Views\People\Index.cshtml" />
-    <Content Include="Views\PersonTypes\Create.cshtml" />
-    <Content Include="Views\PersonTypes\Delete.cshtml" />
-    <Content Include="Views\PersonTypes\Details.cshtml" />
-    <Content Include="Views\PersonTypes\Edit.cshtml" />
-    <Content Include="Views\PersonTypes\Index.cshtml" />
-    <Content Include="Views\ProductCategories\Create.cshtml" />
-    <Content Include="Views\ProductCategories\Delete.cshtml" />
-    <Content Include="Views\ProductCategories\Details.cshtml" />
-    <Content Include="Views\ProductCategories\Edit.cshtml" />
-    <Content Include="Views\ProductCategories\Index.cshtml" />
-    <Content Include="Views\ProductEdits\Create.cshtml" />
-    <Content Include="Views\ProductEdits\Delete.cshtml" />
-    <Content Include="Views\ProductEdits\Details.cshtml" />
-    <Content Include="Views\ProductEdits\Edit.cshtml" />
-    <Content Include="Views\ProductEdits\Index.cshtml" />
-    <Content Include="Views\ProductEditTypes\Create.cshtml" />
-    <Content Include="Views\ProductEditTypes\Delete.cshtml" />
-    <Content Include="Views\ProductEditTypes\Details.cshtml" />
-    <Content Include="Views\ProductEditTypes\Edit.cshtml" />
-    <Content Include="Views\ProductEditTypes\Index.cshtml" />
-    <Content Include="Views\Products\Create.cshtml" />
-    <Content Include="Views\Products\Delete.cshtml" />
-    <Content Include="Views\Products\Details.cshtml" />
-    <Content Include="Views\Products\Edit.cshtml" />
-    <Content Include="Views\Products\Index.cshtml" />
-    <Content Include="Views\Storages\Create.cshtml" />
-    <Content Include="Views\Storages\Delete.cshtml" />
-    <Content Include="Views\Storages\Details.cshtml" />
-    <Content Include="Views\Storages\Edit.cshtml" />
-    <Content Include="Views\Storages\Index.cshtml" />
-    <Content Include="Views\StoredProducts\Create.cshtml" />
-    <Content Include="Views\StoredProducts\Delete.cshtml" />
-    <Content Include="Views\StoredProducts\Details.cshtml" />
-    <Content Include="Views\StoredProducts\Edit.cshtml" />
-    <Content Include="Views\StoredProducts\Index.cshtml" />
-    <Content Include="Views\UserEdits\Create.cshtml" />
-    <Content Include="Views\UserEdits\Delete.cshtml" />
-    <Content Include="Views\UserEdits\Details.cshtml" />
-    <Content Include="Views\UserEdits\Edit.cshtml" />
-    <Content Include="Views\UserEdits\Index.cshtml" />
-    <Content Include="Views\UserEditTypes\Create.cshtml" />
-    <Content Include="Views\UserEditTypes\Delete.cshtml" />
-    <Content Include="Views\UserEditTypes\Details.cshtml" />
-    <Content Include="Views\UserEditTypes\Edit.cshtml" />
-    <Content Include="Views\UserEditTypes\Index.cshtml" />
-    <Content Include="Views\UserRoles\Create.cshtml" />
-    <Content Include="Views\UserRoles\Delete.cshtml" />
-    <Content Include="Views\UserRoles\Details.cshtml" />
-    <Content Include="Views\UserRoles\Edit.cshtml" />
-    <Content Include="Views\UserRoles\Index.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
-    <Content Include="Views\Users\Delete.cshtml" />
-    <Content Include="Views\Users\Details.cshtml" />
-    <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderEdits\Create.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderEdits\Delete.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderEdits\Details.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderEdits\Edit.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderEdits\Index.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderEditTypes\Create.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderEditTypes\Delete.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderEditTypes\Details.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderEditTypes\Edit.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderEditTypes\Index.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderedProducts\Create.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderedProducts\Delete.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderedProducts\Details.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderedProducts\Edit.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderedProducts\Index.cshtml" />
+    <Content Include="Areas\Orders\Views\Orders\Create.cshtml" />
+    <Content Include="Areas\Orders\Views\Orders\Delete.cshtml" />
+    <Content Include="Areas\Orders\Views\Orders\Details.cshtml" />
+    <Content Include="Areas\Orders\Views\Orders\Edit.cshtml" />
+    <Content Include="Areas\Orders\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderTypes\Create.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderTypes\Delete.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderTypes\Details.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderTypes\Edit.cshtml" />
+    <Content Include="Areas\Orders\Views\OrderTypes\Index.cshtml" />
+    <Content Include="Areas\People\Views\Contacts\Create.cshtml" />
+    <Content Include="Areas\People\Views\Contacts\Delete.cshtml" />
+    <Content Include="Areas\People\Views\Contacts\Details.cshtml" />
+    <Content Include="Areas\People\Views\Contacts\Edit.cshtml" />
+    <Content Include="Areas\People\Views\Contacts\Index.cshtml" />
+    <Content Include="Areas\People\Views\ContactTypes\Create.cshtml" />
+    <Content Include="Areas\People\Views\ContactTypes\Delete.cshtml" />
+    <Content Include="Areas\People\Views\ContactTypes\Details.cshtml" />
+    <Content Include="Areas\People\Views\ContactTypes\Edit.cshtml" />
+    <Content Include="Areas\People\Views\ContactTypes\Index.cshtml" />
+    <Content Include="Areas\People\Views\People\Create.cshtml" />
+    <Content Include="Areas\People\Views\People\Delete.cshtml" />
+    <Content Include="Areas\People\Views\People\Details.cshtml" />
+    <Content Include="Areas\People\Views\People\Edit.cshtml" />
+    <Content Include="Areas\People\Views\People\Index.cshtml" />
+    <Content Include="Areas\People\Views\PersonTypes\Create.cshtml" />
+    <Content Include="Areas\People\Views\PersonTypes\Delete.cshtml" />
+    <Content Include="Areas\People\Views\PersonTypes\Details.cshtml" />
+    <Content Include="Areas\People\Views\PersonTypes\Edit.cshtml" />
+    <Content Include="Areas\People\Views\PersonTypes\Index.cshtml" />
+    <Content Include="Areas\Store\Views\ProductCategories\Create.cshtml" />
+    <Content Include="Areas\Store\Views\ProductCategories\Delete.cshtml" />
+    <Content Include="Areas\Store\Views\ProductCategories\Details.cshtml" />
+    <Content Include="Areas\Store\Views\ProductCategories\Edit.cshtml" />
+    <Content Include="Areas\Store\Views\ProductCategories\Index.cshtml" />
+    <Content Include="Areas\Store\Views\ProductEdits\Create.cshtml" />
+    <Content Include="Areas\Store\Views\ProductEdits\Delete.cshtml" />
+    <Content Include="Areas\Store\Views\ProductEdits\Details.cshtml" />
+    <Content Include="Areas\Store\Views\ProductEdits\Edit.cshtml" />
+    <Content Include="Areas\Store\Views\ProductEdits\Index.cshtml" />
+    <Content Include="Areas\Store\Views\ProductEditTypes\Create.cshtml" />
+    <Content Include="Areas\Store\Views\ProductEditTypes\Delete.cshtml" />
+    <Content Include="Areas\Store\Views\ProductEditTypes\Details.cshtml" />
+    <Content Include="Areas\Store\Views\ProductEditTypes\Edit.cshtml" />
+    <Content Include="Areas\Store\Views\ProductEditTypes\Index.cshtml" />
+    <Content Include="Areas\Store\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Store\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Store\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Store\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Store\Views\Products\Index.cshtml" />
+    <Content Include="Areas\Store\Views\Storages\Create.cshtml" />
+    <Content Include="Areas\Store\Views\Storages\Delete.cshtml" />
+    <Content Include="Areas\Store\Views\Storages\Details.cshtml" />
+    <Content Include="Areas\Store\Views\Storages\Edit.cshtml" />
+    <Content Include="Areas\Store\Views\Storages\Index.cshtml" />
+    <Content Include="Areas\Store\Views\StoredProducts\Create.cshtml" />
+    <Content Include="Areas\Store\Views\StoredProducts\Delete.cshtml" />
+    <Content Include="Areas\Store\Views\StoredProducts\Details.cshtml" />
+    <Content Include="Areas\Store\Views\StoredProducts\Edit.cshtml" />
+    <Content Include="Areas\Store\Views\StoredProducts\Index.cshtml" />
+    <Content Include="Areas\Users\Views\UserEdits\Create.cshtml" />
+    <Content Include="Areas\Users\Views\UserEdits\Delete.cshtml" />
+    <Content Include="Areas\Users\Views\UserEdits\Details.cshtml" />
+    <Content Include="Areas\Users\Views\UserEdits\Edit.cshtml" />
+    <Content Include="Areas\Users\Views\UserEdits\Index.cshtml" />
+    <Content Include="Areas\Users\Views\UserEditTypes\Create.cshtml" />
+    <Content Include="Areas\Users\Views\UserEditTypes\Delete.cshtml" />
+    <Content Include="Areas\Users\Views\UserEditTypes\Details.cshtml" />
+    <Content Include="Areas\Users\Views\UserEditTypes\Edit.cshtml" />
+    <Content Include="Areas\Users\Views\UserEditTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Orders\Models\" />
+    <Folder Include="Areas\Orders\Views\Shared\" />
+    <Folder Include="Areas\People\Models\" />
+    <Folder Include="Areas\People\Views\Shared\" />
+    <Folder Include="Areas\Store\Models\" />
+    <Folder Include="Areas\Store\Views\Shared\" />
+    <Folder Include="Areas\Users\Models\" />
+    <Folder Include="Areas\Users\Views\Shared\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Orders\OrderEdits\" />
-    <Folder Include="Views\Orders\OrderEditTypes\" />
-    <Folder Include="Views\Orders\OrderedProducts\" />
-    <Folder Include="Views\Orders\Orders\" />
-    <Folder Include="Views\Orders\OrderTypes\" />
-    <Folder Include="Views\People\Contacts\" />
-    <Folder Include="Views\People\ContactTypes\" />
-    <Folder Include="Views\People\People\" />
-    <Folder Include="Views\People\PersonTypes\" />
-    <Folder Include="Views\Store\ProductCategories\" />
-    <Folder Include="Views\Store\ProductEdits\" />
-    <Folder Include="Views\Store\ProductEditTypes\" />
-    <Folder Include="Views\Store\Products\" />
-    <Folder Include="Views\Store\Storages\" />
-    <Folder Include="Views\Store\StoredProducts\" />
-    <Folder Include="Views\Users\UserEdits\" />
-    <Folder Include="Views\Users\UserEditTypes\" />
-    <Folder Include="Views\Users\UserRoles\" />
-    <Folder Include="Views\Users\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -337,7 +379,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-2.2.1.min.map" />
+    <Content Include="Scripts\jquery-2.2.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
@@ -381,8 +423,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

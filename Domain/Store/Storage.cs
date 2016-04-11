@@ -12,7 +12,7 @@ namespace Domain.Store
         public int StorageId { get; set; }
 
         [MaxLength(32)]
-        public String StorageName { get; set; }
+        public MultiLangString StorageName { get; set; }
 
         public virtual List<StoredProduct> StoredProducts { get; set; }
     }

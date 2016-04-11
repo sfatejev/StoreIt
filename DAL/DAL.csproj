@@ -38,6 +38,26 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.2.3\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -49,13 +69,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbInitializer.cs" />
+    <Compile Include="EFConfiguration\RoleMap.cs" />
+    <Compile Include="EFConfiguration\ServiceMap.cs" />
+    <Compile Include="EFConfiguration\UserClaimMap.cs" />
+    <Compile Include="EFConfiguration\UserLoginMap.cs" />
+    <Compile Include="EFConfiguration\UserMap.cs" />
+    <Compile Include="EFConfiguration\UserRoleMap.cs" />
+    <Compile Include="Helpers\EFRepositoryFactory.cs" />
+    <Compile Include="Helpers\EFRepositoryProvider.cs" />
+    <Compile Include="Helpers\FormattedDbEntityValidationException.cs" />
+    <Compile Include="Interfaces\IDbContext.cs" />
+    <Compile Include="Interfaces\IEFRepositoryProvider.cs" />
+    <Compile Include="Interfaces\IUOW.cs" />
     <Compile Include="Interfaces\Orders\IOrderEditRepository.cs" />
     <Compile Include="Interfaces\Orders\IOrderEditTypeRepository.cs" />
     <Compile Include="Interfaces\Orders\IOrderedProductRepository.cs" />
     <Compile Include="Interfaces\Orders\IOrderRepository.cs" />
     <Compile Include="Interfaces\Orders\IOrderTypeRepository.cs" />
     <Compile Include="Interfaces\People\IContactRepository.cs" />
-    <Compile Include="Interfaces\IDbContext.cs" />
     <Compile Include="Interfaces\IEFRepository.cs" />
     <Compile Include="Interfaces\People\IContactTypeRepository.cs" />
     <Compile Include="Interfaces\People\IPersonRepository.cs" />
@@ -66,15 +98,23 @@
     <Compile Include="Interfaces\Store\IProductRepository.cs" />
     <Compile Include="Interfaces\Store\IStorageRepository.cs" />
     <Compile Include="Interfaces\Store\IStoredProductRepository.cs" />
+    <Compile Include="Interfaces\Users\IRoleRepository.cs" />
+    <Compile Include="Interfaces\Users\IUserClaimRepository.cs" />
     <Compile Include="Interfaces\Users\IUserEditRepository.cs" />
     <Compile Include="Interfaces\Users\IUserEditTypeRepository.cs" />
+    <Compile Include="Interfaces\Users\IUserLoginRepository.cs" />
     <Compile Include="Interfaces\Users\IUserRepository.cs" />
     <Compile Include="Interfaces\Users\IUserRoleRepository.cs" />
-    <Compile Include="Migrations\201603141024578_InitialDbMigration.cs" />
-    <Compile Include="Migrations\201603141024578_InitialDbMigration.Designer.cs">
-      <DependentUpon>201603141024578_InitialDbMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201604091425013_Reset.cs" />
+    <Compile Include="Migrations\201604091425013_Reset.Designer.cs">
+      <DependentUpon>201604091425013_Reset.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\MigrationsConfiguration.cs" />
+    <Compile Include="Migrations\201604091437458_UserModelFixed.cs" />
+    <Compile Include="Migrations\201604091437458_UserModelFixed.Designer.cs">
+      <DependentUpon>201604091437458_UserModelFixed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MigrationConfiguration.cs" />
+    <Compile Include="NLogCommandInterceptor.cs" />
     <Compile Include="Repositories\EFRepository.cs" />
     <Compile Include="Repositories\Orders\OrderEditRepository.cs" />
     <Compile Include="Repositories\Orders\OrderEditTypeRepository.cs" />
@@ -91,29 +131,39 @@
     <Compile Include="Repositories\Store\ProductRepository.cs" />
     <Compile Include="Repositories\Store\StorageRepository.cs" />
     <Compile Include="Repositories\Store\StoredProductRepository.cs" />
+    <Compile Include="Repositories\Users\RoleRepository.cs" />
+    <Compile Include="Repositories\Users\UserClaimRepository.cs" />
     <Compile Include="Repositories\Users\UserEditRepository.cs" />
     <Compile Include="Repositories\Users\UserEditTypeRepository.cs" />
+    <Compile Include="Repositories\Users\UserLoginRepository.cs" />
     <Compile Include="Repositories\Users\UserRepository.cs" />
     <Compile Include="Repositories\Users\UserRoleRepository.cs" />
     <Compile Include="StoreItDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UOW.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAnnotations\DataAnnotations.csproj">
+      <Project>{dd6eaf54-cc53-4cfb-bf05-56ccc26f7fdf}</Project>
+      <Name>DataAnnotations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{5a69e765-34b4-46da-8bd8-ff2c698c09fe}</Project>
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603141024578_InitialDbMigration.resx">
-      <DependentUpon>201603141024578_InitialDbMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604091425013_Reset.resx">
+      <DependentUpon>201604091425013_Reset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604091437458_UserModelFixed.resx">
+      <DependentUpon>201604091437458_UserModelFixed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
